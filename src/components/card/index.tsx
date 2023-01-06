@@ -1,5 +1,7 @@
 import { styled } from "@stitches/react";
+import { useEffect, useRef, useState } from "react";
 import { color } from "../../colors";
+import List from "../list";
 
 const CardLayout = styled("div", {
   backgroundColor: color("cyan", 5),
@@ -36,11 +38,38 @@ export interface CardProps {
 }
 
 function Card(props: CardProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <CardLayout>
-      <CardHeader>{props.title}</CardHeader>
-      <CardContent>0/0</CardContent>
-    </CardLayout>
+    <>
+      <CardLayout onClick={() => setOpen((open) => !open)}>
+        <CardHeader>{props.title}</CardHeader>
+        <CardContent>0/0</CardContent>
+      </CardLayout>
+      <List
+        title={props.title}
+        open={open}
+        closeList={() => setOpen(false)}
+        toDoItems={[
+          {
+            checked: true,
+            description: "criar banco de dados",
+          },
+          {
+            checked: true,
+            description: "criar banco de dados",
+          },
+          {
+            checked: true,
+            description: "criar banco de dados",
+          },
+          {
+            checked: true,
+            description: "criar banco de dados",
+          },
+        ]}
+      />
+    </>
   );
 }
 

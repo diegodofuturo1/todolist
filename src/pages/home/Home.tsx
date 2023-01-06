@@ -17,7 +17,7 @@ export default function Home() {
           { title: "Site" },
         ]}
       />
-      {/* <Board
+      <Board
         title="To Do List"
         cards={[
           { title: "Banco de Dados" },
@@ -32,7 +32,7 @@ export default function Home() {
           { title: "API" },
           { title: "Site" },
         ]}
-      /> */}
+      />
     </HomeLayout>
   );
 }
