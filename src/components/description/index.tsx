@@ -51,13 +51,25 @@ const Button = styled("button", {
     border: 0,
   },
 });
-export default () => {
+
+export interface DescriptionProps {
+  description: string;
+}
+
+export default (props: DescriptionProps) => {
   const [visible, setVisible] = useState(false);
+  const [description, setDescription] = useState(props.description);
+
   return (
     <Layout>
       <Title>Description</Title>
       <Separator />
-      <TextArea onClick={() => setVisible(true)} mode="edit" />
+      <TextArea
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        onClick={() => setVisible(true)}
+        mode="edit"
+      />
       <ButtonArea visible={visible}>
         <Button onClick={() => setVisible(false)}>Salvar</Button>
         <Button onClick={() => setVisible(false)}>Cancelar</Button>

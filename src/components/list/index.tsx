@@ -58,6 +58,7 @@ export interface ToDoItem {
 }
 
 export interface ToDoListProps {
+  description: string;
   open: boolean;
   closeList: () => void;
   title: string;
@@ -82,7 +83,7 @@ const ToDoList = (props: ToDoListProps) => {
             </Close>
           </Header>
           <Content>
-            <Description />
+            <Description description={props.description} />
             <ProgressDemo progress={44} />
             <List>{renderToDoItems()}</List>
           </Content>

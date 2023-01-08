@@ -9,7 +9,9 @@ export interface BoardProps {
 
 function Board(props: BoardProps) {
   const renderCards = () => {
-    return props.cards.map((card) => <Card title={card.title} />);
+    return props.cards.map((card) => (
+      <Card title={card.title} description={card.description} />
+    ));
   };
 
   return (

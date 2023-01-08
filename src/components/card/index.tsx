@@ -35,6 +35,7 @@ const CardContent = styled("div", {
 
 export interface CardProps {
   title: string;
+  description: string;
 }
 
 function Card(props: CardProps) {
@@ -47,6 +48,7 @@ function Card(props: CardProps) {
         <CardContent>0/0</CardContent>
       </CardLayout>
       <List
+        description={props.description}
         title={props.title}
         open={open}
         closeList={() => setOpen(false)}
