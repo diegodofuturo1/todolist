@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "concurrently --kill-others \"json-server --watch src/databases/database.json\" \"vite\" ",
+    "build": "concurrently --kill-others \"json-server --watch src/databases/database.json\" \"tsc\" \"vite build\" ",
     "preview": "vite preview",
     "server": "json-server --watch src/databases/database.json"
   },
@@ -18,6 +18,7 @@
     "@radix-ui/react-separator": "^1.0.1",
     "@stitches/react": "^1.2.8",
     "@types/uuid": "^9.0.0",
+    "concurrently": "^7.6.0",
     "json-server": "^0.17.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
